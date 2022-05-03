@@ -10,7 +10,7 @@ app.use(express.static('public');
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, function() {
-  console.log("Server running on " + PORT)
+  console.log("Server running on " + PORT )
 })
 
 const root = createRoot(document.getElementById('root'))
