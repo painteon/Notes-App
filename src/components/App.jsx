@@ -10,7 +10,7 @@ function App() {
   let storage = localStorage.getItem('notes');
 
   function checkStorage () {
-    return notesArray[0] === undefined && JSON.parse(storage)[0] !== undefined ? setNotesArray(JSON.parse(storage)): setNotesArray([]);
+    return notesArray[0] === undefined || null && JSON.parse(storage)[0] !== undefined || null ? setNotesArray(JSON.parse(storage)): setNotesArray([]);
   }
   useEffect(() => {
     checkStorage();
