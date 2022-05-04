@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Header from './header.jsx';
 import CreateNote from './CreateNote.jsx';
 import Footer from './footer.jsx';
@@ -6,6 +6,19 @@ import Note from './Note.jsx';
 
 function App() {
   let [notesArray, setNotesArray] = useState([]);
+
+  let storage = localStorage.getItem('notes');
+
+  function checkStorage () {
+    return notesArray[0] === undefined && JSON.parse(storage)[0] !== undefined ? setNotesArray(JSON.parse(storage)): setNotesArray([]);
+  }
+  useEffect(() => {
+    checkStorage();
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('notes', JSON.stringify(notesArray))
+  }, [notesArray]);
 
   function addNote(notes) {
     return setNotesArray((prev) => {
@@ -15,6 +28,7 @@ function App() {
       ]
     })
   }
+
   function remove (id){
     setNotesArray((prev) => {
       return prev.filter((page, index) => {

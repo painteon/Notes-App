@@ -20,7 +20,7 @@ function CreateNote(props) {
 
   function submit(event){
     event.preventDefault();
-    props.add(newNote)
+    props.add(newNote);
     setNewNote({
       title: "",
       content: ""
