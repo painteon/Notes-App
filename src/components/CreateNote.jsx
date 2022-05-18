@@ -30,8 +30,8 @@ function CreateNote(props) {
   return(
     <div>
       <form>
-        <input onChange={handlechange} name= "title" placeholder= "Title" />
-        <textarea onChange={handlechange} name="content" placeholder= "Content" />
+        <input onChange={handlechange} value= {newNote.title} name= "title" placeholder= "Title" />
+        <textarea onChange={handlechange} value= {newNote.content} name="content" placeholder= "Content" />
         <button onClick= {submit}>Add</button>
       </form>
     </div>
